@@ -1,0 +1,39 @@
+.display {
+    font-size: 2rem;
+    width: 100%;
+    text-align: right;
+    border-radius: 10px;
+
+
+
+
+
+}
+
+body {
+    background-image: url(scattered-forcefields.svg);
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    background: rgb(229, 237, 255);
+
+
+}
+
+.btn:hover {
+    background: royalblue;
+}
+
+.btn-eq:hover {
+    background: rgba(222, 158, 225,0.5);
+}
+
+
+.c {
+    margin-top: 150px;
+    justify-self: center;
+
+}
