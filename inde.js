@@ -1,30 +1,24 @@
 function Calculadora() {
     this.display = document.querySelector('.display')
 
-    this.evento = () => {
+
+    this.inicia = () => {
         document.addEventListener('click', (e) => {
             const el = e.target
 
-            if (el.classList.contains('btn-num')) this.displayadd(el)
-
-            if (el.classList.contains('btn-clear')) this.dell()
-
+            if (el.classList.contains('btn-num')) this.num(el)
+            if (el.classList.contains('btn-clear')) this.clear()
             if (el.classList.contains('btn-del')) this.del()
-
             if (el.classList.contains('btn-eq')) this.eq()
-
-
-            this.display.addEventListener('input', (event) => {
-                let valor = event.target.value;
-                event.target.value = valor.replace(/[a-zA-Z]/g, '');
-            })
         })
-
+        this.display.addEventListener('input', (event) => {
+            let valor = event.target.value;
+            event.target.value = valor.replace(/[a-zA-Z]/g, '');
+        })
     }
-    this.displayadd = (el) => this.display.value += el.innerText
 
-    this.dell = () => this.display.value = ''
-
+    this.num = (el) => this.display.value += el.innerText
+    this.clear = () => this.display.value = ''
     this.del = () => this.display.value = this.display.value.slice(0, -1)
 
     this.eq = () => {
@@ -32,29 +26,30 @@ function Calculadora() {
             const conta = eval(this.display.value)
 
             if (!conta) {
-                alert('erro')
+                alert('erro 1')
                 return
+
+
             }
             this.display.value = conta
         }
 
-        catch (e) {
+        catch (erro) {
             alert('erro')
+
             return
         }
+
     }
 
-    this.ini = () => this.evento()
-
-}
 
 
-function validarEntrada(event) {
-    let valor = event.target.value;
-    event.target.value = valor.replace(/[a-zA-Z]/g, '');
+
+    this.ini = () => {
+        this.inicia()
+    }
+
 }
 
 const cal = new Calculadora()
-cal.evento()
-
-
+cal.inicia()
